@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { RxCaretDown } from "react-icons/rx";
+import logo from "../../assets/ecommerce_logo.png";
 import { FaHome } from "react-icons/fa";
 import { BiSolidOffer } from "react-icons/bi";
 import { IoIosHelpBuoy } from "react-icons/io";
@@ -100,7 +100,7 @@ const Header = () => {
           <div className=" w-full flex items-center justify-center absolute bottom-0 py-4">
             <div className="w-[60px]  ">
               <img
-                src="/src/assets/ecommerce_logo.png"
+                src={logo}
                 alt="logo"
                 className="w-full"
               />
@@ -117,7 +117,7 @@ const Header = () => {
       <div className="max-w-[1200px] mx-auto flex justify-between items-center">
         <NavLink className="w-[80px] transition-transform duration-300 hover:scale-110">
           <img
-            src="src/assets/ecommerce_logo.png"
+            src={logo}
             alt="logo"
             className="w-full"
           />
