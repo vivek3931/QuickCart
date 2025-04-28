@@ -113,10 +113,10 @@ const products = [
   },
   {
     "id": "9",
-    "name": opporeno11pro,
+    "name": "Oppo Reno 11 pro",
     "price": 599,
     "offerPrice": 549,
-    "img": "/src/assets/opporeno11pro.png",
+    "img": opporeno11pro,
     "des": "The Oppo Reno 11: Capture stunning portraits with its advanced camera system, enjoy a sleek and stylish design, and a vibrant AMOLED display for immersive visuals.Elevate your portrait game with the Oppo Reno 11's specialized camera features, designed to capture beautiful and natural-looking photos of people.",
     "camera": "50MP Wide (OIS), 8MP Ultra Wide, 32MP Telephoto (2x Optical Zoom)",
     "ram": "12GB",
