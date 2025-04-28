@@ -10,12 +10,21 @@ import {
 import Layout from "./Layout.jsx";
 import Home from "./components/Home/Home.jsx";
 import Cart from "./components/Cart/Cart.jsx";
-import UserProvider from "./Context/Context.jsx";
+import Product from "./components/Product/Product.jsx";
+import Help from "./components/Help/Help.jsx";
+import SignIn from "./components/SignIn/SignIn.jsx";
+import Offer from "./components/Offer/Offer.jsx";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route path="" element={<Home />} />
       <Route path="cart" element={<Cart />} />
+      <Route path="/product/:productId" element={<Product />} />
+      <Route path="/help" element={<Help />} />
+      <Route path="/signin" element={<SignIn />} />
+      <Route path="/offer" element={<Offer />} />
+      <Route path="*" element={<h1>404 Not Found</h1>} />
     </Route>
   )
 );

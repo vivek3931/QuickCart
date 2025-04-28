@@ -8,13 +8,26 @@ import { BsCart2 } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 import { UserContext } from "../../Context/Context";
 import { FaBars } from "react-icons/fa";
+import { IoSearch } from "react-icons/io5";
+import { IoClose } from "react-icons/io5";
 
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 
 const Header = () => {
-  const { filteredObject } = useContext(UserContext);
+  const { filteredObject, input, setInput, setSearchData, searchdata } =
+    useContext(UserContext);
 
+  const handleSuggestion = (e) => {
+    const inputValue = e.target.value;
+    setInput(inputValue);
+  };
+
+  const handleClose = () => {
+    setInput("");
+    setSearchData([]);
+    document.querySelector(".input-box").value = "";
+  };
   const [toggle, setToggle] = useState(false);
 
   const toggleMenu = () => {
@@ -26,7 +39,7 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-[999] bg-white p-3 shadow-2xl text-gray-700">
+    <header className="sticky top-0 z-[999] bg-white p-3 shadow text-gray-700">
       <div
         className="fixed z-[9999] h-screen w-full  duration-500 bg-black/50 lg:hidden"
         style={{
@@ -86,9 +99,18 @@ const Header = () => {
           </nav>
           <div className=" w-full flex items-center justify-center absolute bottom-0 py-4">
             <div className="w-[60px]  ">
-            <img src='/src/assets/ecommerce_logo.png' alt="logo" className="w-full" />
+              <img
+                src="/src/assets/ecommerce_logo.png"
+                alt="logo"
+                className="w-full"
+              />
             </div>
-            <h1 className="font-extrabold text-orange-600"><span className="font-extrabold text-2xl"><i>Q</i></span>uickCart</h1>
+            <h1 className="font-extrabold text-orange-600">
+              <span className="font-extrabold text-2xl">
+                <i>Q</i>
+              </span>
+              uickCart
+            </h1>
           </div>
         </div>
       </div>
@@ -103,26 +125,32 @@ const Header = () => {
 
         <div>
           <nav className="hidden lg:flex list-none ml-auto gap-12 items-center">
-            <Link
+            <NavLink
               to={"/"}
               className="hover:text-orange-500 transition-colors duration-300 cursor-pointer font-medium flex items-center gap-2"
             >
               <FaHome className="text-lg" />
               Home
-            </Link>
-            <li className="hover:text-orange-500 transition-colors duration-300 cursor-pointer font-medium flex items-center gap-2">
+            </NavLink>
+            <NavLink to={'/offer'} className="hover:text-orange-500 transition-colors duration-300 cursor-pointer font-medium flex items-center gap-2">
               <BiSolidOffer className="text-lg" />
               Offer
-            </li>
-            <li className="hover:text-orange-500 transition-colors duration-300 cursor-pointer font-medium flex items-center gap-2">
+            </NavLink>
+            <NavLink
+              to={"/help"}
+              className="hover:text-orange-500 transition-colors duration-300 cursor-pointer font-medium flex items-center gap-2"
+            >
               <IoIosHelpBuoy className="text-lg" />
               Help
-            </li>
-            <li className="hover:text-orange-500 transition-colors duration-300 cursor-pointer font-medium flex items-center gap-2">
+            </NavLink>
+            <NavLink
+              to={"/signin"}
+              className="hover:text-orange-500 transition-colors duration-300 cursor-pointer font-medium flex items-center gap-2"
+            >
               <CiUser className="text-lg" />
               Sign in
-            </li>
-            <Link
+            </NavLink>
+            <NavLink
               to="/cart"
               className="hover:text-orange-500 transition-colors duration-300 cursor-pointer font-medium flex items-center gap-2 relative"
             >
@@ -131,22 +159,49 @@ const Header = () => {
                 {filteredObject.length}
               </span>
               Cart
-            </Link>
+            </NavLink>
           </nav>
         </div>
-        <div className="flex items-center rounded-lg overflow-hidden shadow-md border border-orange-500">
+        <div className="flex items-center rounded-3xl  shadow-md border border-orange-500 relative">
           <input
             type="text"
-            className="px-4 py-2.5 w-[200px] outline-none placeholder:text-gray-400"
+            className="px-4 py-2.5 outline-none placeholder:text-gray-400 input-box"
             placeholder="Search here..."
+            value={input}
+            autoComplete="off"
+            onChange={handleSuggestion}
           />
           <button
             type="submit"
-            className="text-white bg-orange-500  w-fit px-2 py-2.5 hover:bg-orange-600 transition-colors duration-300  font-medium"
+            className="text-white py-2.5 px-3 bg-orange-500 rounded-r-3xl  hover:bg-orange-600 transition-colors duration-300 flex items-center justify-center font-medium cursor-pointer"
           >
-            Search
+            {searchdata.length > 0 ? (
+              <IoClose className="text-2xl" onClick={handleClose} />
+            ) : (
+              <IoSearch className="text-2xl" />
+            )}
           </button>
+          <div
+            className={`transition-all duration-300 ease-in-out absolute top-full left-0 w-full mt-1 bg-white border border-gray-300 max-h-52 overflow-y-auto z-[10000] shadow-lg rounded-lg  ${
+              searchdata.length > 0 ? "block" : "hidden"
+            }`}
+          >
+            {
+              searchdata.map((data, idx) => (
+                <Link
+                  to={`/product/${data.id}`}
+                  key={idx}
+                  className="cursor-pointer p-[10px] hover:bg-[#f0f0f0] block"
+                  onClick={handleClose}
+                >
+                  {data.name}
+                </Link>
+              ))
+              // )
+            }
+          </div>
         </div>
+
         <div className="lg:hidden block ml-4">
           <FaBars
             className="text-2xl cursor-pointer hover:text-orange-500 transition-colors duration-300"
