@@ -56,36 +56,36 @@ const Header = () => {
           }}
         >
           <nav className="flex flex-col list-none">
-            <Link
+            <NavLink
               to={"/"}
               onClick={hideMenu}
               className="hover:bg-orange-50 hover:text-orange-500 transition-all duration-300 cursor-pointer font-medium flex items-center gap-3 border-b px-6 py-4 border-gray-100"
             >
               <FaHome className="text-lg" />
               Home
-            </Link>
-            <li
+            </NavLink>
+            <NavLink to={'/offer'}
               onClick={hideMenu}
               className="hover:bg-orange-50 hover:text-orange-500 transition-all duration-300 cursor-pointer font-medium flex items-center gap-3 border-b px-6 py-4 border-gray-100"
             >
               <BiSolidOffer className="text-lg" />
               Offer
-            </li>
-            <li
+            </NavLink>
+            <NavLink to={'/help'}
               onClick={hideMenu}
               className="hover:bg-orange-50 hover:text-orange-500 transition-all duration-300 cursor-pointer font-medium flex items-center gap-3 border-b px-6 py-4 border-gray-100"
             >
               <IoIosHelpBuoy className="text-lg" />
               Help
-            </li>
-            <li
+            </NavLink>
+            <NavLink to={'signin'}
               onClick={hideMenu}
               className="hover:bg-orange-50 hover:text-orange-500 transition-all duration-300 cursor-pointer font-medium flex items-center gap-3 border-b px-6 py-4 border-gray-100"
             >
               <CiUser className="text-lg" />
               Sign in
-            </li>
-            <Link
+            </NavLink>
+            <NavLink
               to="/cart"
               onClick={hideMenu}
               className="hover:bg-orange-50 hover:text-orange-500 transition-all duration-300 cursor-pointer font-medium flex items-center gap-3 relative border-b px-6 py-4 border-gray-100"
@@ -95,7 +95,7 @@ const Header = () => {
                 {filteredObject.length}
               </span>
               Cart
-            </Link>
+            </NavLink>
           </nav>
           <div className=" w-full flex items-center justify-center absolute bottom-0 py-4">
             <div className="w-[60px]  ">

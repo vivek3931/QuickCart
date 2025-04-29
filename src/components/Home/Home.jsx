@@ -4,6 +4,7 @@ import { UserContext } from "../../Context/Context";
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import Slider from "../Slider/Slider";
+import Loader from "../Loader/Loader";
 
 const Home = () => {
   const { setProductId } = useContext(UserContext);
@@ -21,7 +22,7 @@ const Home = () => {
         <ToastContainer />
         {products.map((data, idx) => {
           return (
-            <div
+            <Link to={`/product/${data.id}`}
               key={idx}
               className="w-64 bg-white rounded-lg shadow-md overflow-hidden  "
             >
@@ -63,7 +64,7 @@ const Home = () => {
                   </button>
                 </div>
               </div>
-            </div>
+            </Link>
           );
         })}
         <hr className="text-[#e2e2e7] border-[1.5px]" />
