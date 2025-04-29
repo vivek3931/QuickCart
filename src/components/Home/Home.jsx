@@ -4,7 +4,6 @@ import { UserContext } from "../../Context/Context";
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import Slider from "../Slider/Slider";
-import Loader from "../Loader/Loader";
 
 const Home = () => {
   const { setProductId } = useContext(UserContext);

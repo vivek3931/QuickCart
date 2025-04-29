@@ -1,15 +1,17 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import vivo from "/src/assets/advivo.png";
 import samsung from "/src/assets/adsamsung.png";
-import samsung2 from "/src/assets/adsamsung2.png";
-import honor from "/src/assets/adhonor.png";
-import pixel from "/src/assets/adpixel.png";
+import samsung4 from "/src/assets/adsamsung4.jpg";
+import samsungtab from "/src/assets/adsamsungtab.jpg";
+import samsungwatch from "/src/assets/adsamsungwatch.jpg";
+
+import samsungbook from "/src/assets/adsamsungbook.jpg";
+
 
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const images = [vivo, samsung, honor, pixel, samsung2];
+  const images = [samsung, samsungbook, samsungtab,samsungwatch,samsung4];
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
