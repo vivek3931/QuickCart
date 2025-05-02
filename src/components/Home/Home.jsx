@@ -19,17 +19,26 @@ const Home = () => {
   const totalPage = Math.ceil(products.length / productPerPage);
 
   const nextPage = () => {
+    if (navigator.vibrate) {
+      navigator.vibrate(100);
+    }
     if (currentPage < totalPage) {
       setCurrentPage((prev) => prev + 1);
     }
   };
   const prevPage = () => {
+    if (navigator.vibrate) {
+      navigator.vibrate(100);
+    }
     if (currentPage > 1) {
       setCurrentPage((prev) => prev - 1);
     }
   };
 
   const productSpecification = (id) => {
+    if (navigator.vibrate) {
+      navigator.vibrate(100);
+    }
     setProductId(id);
     toast.success("Product added successfully");
   };
@@ -48,7 +57,7 @@ const Home = () => {
         key={idx}
         className="w-72 bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1"
         >
-        <div className="relative group">
+        <div className="relative group py-2">
           <img
           src={data.img}
           loading="lazy"
@@ -56,7 +65,7 @@ const Home = () => {
           className="w-full h-[280px] object-cover transition-transform duration-300 group-hover:scale-110"
           />
           <span className="absolute top-2 right-2 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-          50% OFF
+         { `${Math.round((data.price - data.offerPrice) / data.price * 100)}% OFF`}
           </span>
         </div>
         <div className="p-5">
@@ -100,7 +109,7 @@ const Home = () => {
         >
         Previous
         </button>
-        <span className="text-lg font-medium  bg-[#a4a4a439] px-3.5 py-1 rounded-full">{currentPage}</span>
+        <span className="text-lg font-medium  bg-[#a4a4a439] px-3.5 py-1 rounded-full duration-200 transition">{currentPage}</span>
         <button 
         onClick={nextPage} 
         disabled={currentPage === totalPage}

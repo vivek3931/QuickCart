@@ -31,6 +31,9 @@ const Header = () => {
   const [toggle, setToggle] = useState(false);
 
   const toggleMenu = () => {
+    if (navigator.vibrate) {
+      navigator.vibrate(100);
+    }
     setToggle(true);
   };
 
@@ -38,10 +41,11 @@ const Header = () => {
     setToggle(false);
   };
 
+
   return (
     <header className="sticky top-0 z-[999] bg-white p-3 shadow text-gray-700">
       <div
-        className="fixed z-[9999] h-screen w-full  duration-500 bg-black/50 lg:hidden"
+        className="fixed z-[9999] h-dvh w-full  duration-500 bg-black/50 lg:hidden"
         style={{
           opacity: toggle ? 1 : 0,
           visibility: toggle ? "visible" : "hidden",
@@ -55,7 +59,7 @@ const Header = () => {
             e.stopPropagation();
           }}
         >
-          <nav className="flex flex-col list-none">
+          <nav className="flex flex-col list-none animate-[slideIn_0.3s_ease-in-out]">
             <NavLink
               to={"/"}
               onClick={hideMenu}
@@ -64,21 +68,24 @@ const Header = () => {
               <FaHome className="text-lg" />
               Home
             </NavLink>
-            <NavLink to={'/offer'}
+            <NavLink
+              to={"/offer"}
               onClick={hideMenu}
               className="hover:bg-orange-50 hover:text-orange-500 transition-all duration-300 cursor-pointer font-medium flex items-center gap-3 border-b px-6 py-4 border-gray-100"
             >
               <BiSolidOffer className="text-lg" />
               Offer
             </NavLink>
-            <NavLink to={'/help'}
+            <NavLink
+              to={"/help"}
               onClick={hideMenu}
               className="hover:bg-orange-50 hover:text-orange-500 transition-all duration-300 cursor-pointer font-medium flex items-center gap-3 border-b px-6 py-4 border-gray-100"
             >
               <IoIosHelpBuoy className="text-lg" />
               Help
             </NavLink>
-            <NavLink to={'signin'}
+            <NavLink
+              to={"signin"}
               onClick={hideMenu}
               className="hover:bg-orange-50 hover:text-orange-500 transition-all duration-300 cursor-pointer font-medium flex items-center gap-3 border-b px-6 py-4 border-gray-100"
             >
@@ -97,13 +104,9 @@ const Header = () => {
               Cart
             </NavLink>
           </nav>
-          <div className=" w-full flex items-center justify-center absolute bottom-0 py-4">
-            <div className="w-[60px]  ">
-              <img
-                src={logo}
-                alt="logo"
-                className="w-full"
-              />
+          <div className="w-full flex items-center justify-center absolute bottom-0 py-4 animate-[fadeIn_0.5s_ease-in-out]">
+            <div className="w-[60px]">
+              <img src={logo} alt="logo" className="w-full" />
             </div>
             <h1 className="font-extrabold text-orange-600">
               <span className="font-extrabold text-2xl">
@@ -116,11 +119,7 @@ const Header = () => {
       </div>
       <div className="max-w-[1200px] mx-auto flex justify-between items-center">
         <NavLink className="w-[80px] transition-transform duration-300 hover:scale-110">
-          <img
-            src={logo}
-            alt="logo"
-            className="w-full"
-          />
+          <img src={logo} alt="logo" className="w-full" />
         </NavLink>
 
         <div>
@@ -132,7 +131,10 @@ const Header = () => {
               <FaHome className="text-lg" />
               Home
             </NavLink>
-            <NavLink to={'/offer'} className="hover:text-orange-500 transition-colors duration-300 cursor-pointer font-medium flex items-center gap-2">
+            <NavLink
+              to={"/offer"}
+              className="hover:text-orange-500 transition-colors duration-300 cursor-pointer font-medium flex items-center gap-2"
+            >
               <BiSolidOffer className="text-lg" />
               Offer
             </NavLink>
@@ -162,18 +164,21 @@ const Header = () => {
             </NavLink>
           </nav>
         </div>
-        <div className="flex items-center rounded-3xl  shadow-md border border-orange-500 relative">
+        <div
+          className='flex items-center rounded-3xl shadow-md border border-orange-500 relative duration-200 transition-all '
+        >
           <input
             type="text"
-            className="px-4 py-2.5 outline-none placeholder:text-gray-400 input-box"
+            className=' px-4 py-2.5 outline-none placeholder:text-gray-400 input-box '
             placeholder="Search here..."
             value={input}
             autoComplete="off"
+            
             onChange={handleSuggestion}
           />
           <button
             type="submit"
-            className="text-white py-2.5 px-3 bg-orange-500 rounded-r-3xl  hover:bg-orange-600 transition-colors duration-300 flex items-center justify-center font-medium cursor-pointer"
+            className="text-white py-2.5 px-3 bg-orange-500 rounded-r-3xl hover:bg-orange-600 transition-colors duration-300 flex items-center justify-center font-medium cursor-pointer"
           >
             {searchdata.length > 0 ? (
               <IoClose className="text-2xl" onClick={handleClose} />
@@ -182,7 +187,7 @@ const Header = () => {
             )}
           </button>
           <div
-            className={`transition-all duration-300 ease-in-out absolute top-full left-0 w-full mt-1 bg-white border border-gray-300 max-h-52 overflow-y-auto z-[10000] shadow-lg rounded-lg  ${
+            className={`transition-all duration-300 ease-in-out absolute top-full left-0 w-full mt-1 bg-white border border-gray-300 max-h-52 overflow-y-auto z-[10000] shadow-lg rounded-lg ${
               searchdata.length > 0 ? "block" : "hidden"
             }`}
           >

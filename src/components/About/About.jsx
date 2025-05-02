@@ -14,7 +14,7 @@ const About = () => {
           <h2 className="text-2xl font-semibold mb-4">Our Story</h2>
           <p className="text-gray-600">
             QuickCart was born out of a simple idea — shopping should be fast,
-            easy, and enjoyable. What started as a small garage project in 2022
+            easy, and enjoyable. What started as a small garage project in 2025
             has grown into one of the most trusted online marketplaces, serving
             thousands of happy customers across the country.
           </p>
@@ -41,9 +41,9 @@ const About = () => {
         <section className="bg-white p-6 rounded-lg shadow-md mb-2">
           <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
           <div className="space-y-2 text-gray-600">
-            <p>Email: contact@yourstore.com</p>
+            <p>Email: quickcart@yourstore.com</p>
             <p>Phone: (555) 123-4567</p>
-            <p>Address: 123 Commerce Street, Business City, ST 12345</p>
+            <p>Address: 123 Post Office Street, Ghansoli City, ST 12345</p>
           </div>
         </section>
       </div>
