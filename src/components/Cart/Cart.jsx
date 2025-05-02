@@ -117,17 +117,17 @@ const Cart = () => {
                       aria-label="Quantity controls"
                     >
                       <button
-                        className="px-4 py-2 border-2 rounded-lg bg-orange-600 text-white hover:bg-orange-700 transition-colors duration-200 font-bold"
+                        className="lg:md:px-4 lg:md:py-2 px-2 py-0.5 rounded-lg bg-orange-600 text-white hover:bg-orange-700 transition-colors duration-200 font-bold"
                         onClick={() => decreaseQuantity(id)}
                         aria-label="Decrease quantity"
                       >
                         −
                       </button>
-                      <span className="px-4.5 py-1.5 bg-gray-100 rounded-full font-medium text-lg">
+                      <span className="lg:md:px-4.5 lg:md:py-1.5 px-3 py-0.5  bg-gray-100 rounded-full font-medium text-lg">
                         {quantity}
                       </span>
                       <button
-                        className="px-4 py-2 border-2 rounded-lg bg-orange-600 text-white hover:bg-orange-700 transition-colors duration-200 font-bold"
+                        className="lg:md:px-4 lg:md:py-2 rounded-lg px-2 py-0.5 bg-orange-600 text-white hover:bg-orange-700 transition-colors duration-200 font-bold"
                         onClick={() => increaseQuantity(id)}
                         aria-label="Increase quantity"
                       >
@@ -153,7 +153,7 @@ const Cart = () => {
               <input
                 type="text"
                 placeholder="Enter coupon code"
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
               />
