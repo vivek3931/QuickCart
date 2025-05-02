@@ -193,10 +193,10 @@ const Cart = () => {
                         ${DELIVERY_FEE}
                       </span>
                     </div>
-                    <div className="flex justify-between items-center">
+                    <div className={`flex justify-between items-center ${isCouponApplied ? "block" : "hidden"}`}>
                       <span className="text-gray-600">Coupon Discount</span>
-                      <span className={`text-xl font-semibold text-gray-800 ${isCouponApplied ? "block" : "hidden"}`}>
-                        ${code === "QUICK200" ? 200 : 0}
+                      <span className={`text-xl font-semibold text-yellow-400 `}>
+                        - ${code === "QUICK200" ? 200 : 0}
                       </span>
                     </div>
                     <div className="border-t-2 border-gray-200 my-4"></div>
