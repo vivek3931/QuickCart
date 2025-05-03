@@ -21,7 +21,7 @@ const Cart = () => {
   };
 
   const decreaseQuantity = (id) => {
-    if (navigator.vibrate && typeof navigator.vibrate === 'function') {
+    if (navigator.vibrate  ) {
       navigator.vibrate(100);
     }
     setCartItems((prevCart) =>
