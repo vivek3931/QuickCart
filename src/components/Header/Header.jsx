@@ -45,10 +45,12 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-[999] bg-white p-3 shadow text-gray-700">
       <div
-        className="fixed z-[9999] h-dvh w-full  duration-500 bg-black/50 lg:hidden"
+        className="fixed z-[9999] h-screen w-full duration-500 bg-black/50 lg:hidden"
         style={{
           opacity: toggle ? 1 : 0,
           visibility: toggle ? "visible" : "hidden",
+          height: '100vh',
+          minHeight: '-webkit-fill-available'
         }}
         onClick={hideMenu}
       >
@@ -169,7 +171,7 @@ const Header = () => {
         >
           <input
             type="text"
-            className=' px-4 py-2.5 outline-none placeholder:text-gray-400 input-box '
+            className=' px-4 py-2.5 outline-none placeholder:text-gray-400 input-box w-[190px]'
             placeholder="Search here..."
             value={input}
             autoComplete="off"

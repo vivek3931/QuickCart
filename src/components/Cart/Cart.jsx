@@ -21,7 +21,7 @@ const Cart = () => {
   };
 
   const decreaseQuantity = (id) => {
-    if (navigator.vibrate) {
+    if (navigator.vibrate && typeof navigator.vibrate === 'function') {
       navigator.vibrate(100);
     }
     setCartItems((prevCart) =>
@@ -117,7 +117,7 @@ const Cart = () => {
                       aria-label="Quantity controls"
                     >
                       <button
-                        className="lg:md:px-4 lg:md:py-2 px-2 py-0.5 rounded-lg bg-orange-600 text-white hover:bg-orange-700 transition-colors duration-200 font-bold"
+                        className="lg:md:px-4 lg:md:py-2 px-3 py-1 rounded-lg bg-orange-600 text-white hover:bg-orange-700 transition-colors duration-200 font-bold"
                         onClick={() => decreaseQuantity(id)}
                         aria-label="Decrease quantity"
                       >
@@ -127,7 +127,7 @@ const Cart = () => {
                         {quantity}
                       </span>
                       <button
-                        className="lg:md:px-4 lg:md:py-2 rounded-lg px-2 py-0.5 bg-orange-600 text-white hover:bg-orange-700 transition-colors duration-200 font-bold"
+                        className="lg:md:px-4 lg:md:py-2 rounded-lg px-3 py-1 bg-orange-600 text-white hover:bg-orange-700 transition-colors duration-200 font-bold"
                         onClick={() => increaseQuantity(id)}
                         aria-label="Increase quantity"
                       >
