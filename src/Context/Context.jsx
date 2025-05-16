@@ -8,6 +8,7 @@ const UserProvider = ({ children }) => {
   const [filteredObject, setFilteredObject] = useState([]);
   const [input, setInput] = useState('');
   const[searchdata , setSearchData] = useState([]);
+  const [theme , setTheme] = useState('dark');
 
   useEffect(()=>{
     if(input !== ""){
@@ -33,7 +34,7 @@ const UserProvider = ({ children }) => {
 
 
   return (
-    <UserContext.Provider value={{ productId, setProductId, filteredObject  , setInput, setSearchData ,searchdata}}>
+    <UserContext.Provider value={{ productId, setProductId, filteredObject  , setInput, setSearchData ,searchdata , theme , setTheme}}>
       {children}
     </UserContext.Provider>
   );

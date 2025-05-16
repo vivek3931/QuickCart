@@ -22,6 +22,7 @@ const Product = () => {
   useEffect(() => {
     setLoading(true);
     const foundProduct = products.find((spec) => spec.id === productId);
+    console.log(foundProduct)
     console.log("The product is :", foundProduct);
     if (foundProduct) {
       setProduct(foundProduct);
