@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Theme from "../ThemeToggle/Theme";
+// import Theme from "../ThemeToggle/Theme";
 import logo from "../../assets/ecommerce_logo.png";
 import { FaHome } from "react-icons/fa";
 import { BiSolidOffer } from "react-icons/bi";
@@ -22,8 +22,7 @@ const Header = () => {
     setInput,
     setSearchData,
     searchdata,
-    theme,
-    setTheme,
+
   } = useContext(UserContext);
 
  
@@ -234,7 +233,6 @@ const Header = () => {
             }
           </div>
         </div>
-        <Theme />
 
         <div className="lg:hidden block ml-4">
           <FaBars
